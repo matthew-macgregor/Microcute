@@ -1,9 +1,30 @@
+### Microcute: The cutest web framework
+
+**Why Microcute?** Does the world really need another web framework?
+
+The short answer is an unequivocal **no**. There are plenty of microframeworks
+and static site generators to keep you busy and happy for years to come. That
+being said, this project was inspired by a few specific needs:
+
+* Create content in Markdown (or html)
+* No database
+* Easy site backups (just zip it up)
+* Insanely simple core
+* Extensible via plugins
+
+There are a few alternatives, but I wasn't fully happy with any of them. In
+addition, Microcute was a good weekend project for me.
+
+One point I want to make is that Microcute is not intended as a blogging
+framework. If you want to build a blog with Microcute, you'll have extra work
+to do.
+
 ### Installation
 
 Installing **Microcute** is very simple. Download the source code from github.
 Inside the main microcute directory run:
 
-    php -S localhost:8080
+php -S localhost:8080
 
 This will start a development server. Begin adding pages in the `site/content/`
 directory.
@@ -14,17 +35,17 @@ That's it.
 
 * Look for a directory matching the route.
 * If a directory matches, use the index file in that directory.
-    * If there is no index file, show the 404 page.
+* If there is no index file, show the 404 page.
 * If no directory matches, look for a file that matches.
 * If neither, show the 404 page.
 
 Note: a directory will override a file. In other words:
 
-    /meow/kitty/
+/meow/kitty/
 
 Will take precedence over:
 
-    /meow/kitty.html
+/meow/kitty.html
 
 You can see an example of a sub directory with index file at [sub]({{ site_url }}/sub).
 
@@ -41,10 +62,10 @@ are the rules:
 
 * If an html file matches the route, use it.
 * If a markdown file matches the route, and no html file exists:
-    * Parse the markdown, create the matching html file, and then serve it.
+* Parse the markdown, create the matching html file, and then serve it.
 * If a markdown file and html file both exist:
-    * Check to see if the markdown file is fresher than the html file.
-    * If markdown is fresher, re-render and **overwrite** the html file.
+* Check to see if the markdown file is fresher than the html file.
+* If markdown is fresher, re-render and **overwrite** the html file.
 
 ### Plugins
 
@@ -86,4 +107,4 @@ example, the sample site contains the `ApiKeyAuthenticator` class.
 
 You can require these files using the `PLUGIN_EXT_DIR` constant:
 
-    require_once PLUGIN_EXT_DIR . "ApiKeyAuthenticator.php";
+require_once PLUGIN_EXT_DIR . "ApiKeyAuthenticator.php";
