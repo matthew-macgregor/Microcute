@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+    <meta name="author" content="microcute">
+    <link rel="stylesheet" href="{{ theme_url }}/css/styles.css?v=1.0">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600,400' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+    <div class="title">
+        <div style="float:left;"><h1>{{ title }}</h1></div>
+        <div >
+        </div>
+        <div class="clearer"></div>
+    </div>
+    <div class="menu">
+        <ul>
+            <li><a href="{{ site_url }}/">Home</a></li>
+            <li><a href="{{ site_url }}/docs">Documentation</a></li>
+        </ul>
+        <div class="clearer"></div>
+    </div>
+
+    <div class="content">
+        {{ content }}
+    </div>
+
+    <footer>
+        <hr/>
+        Copyright &copy; {{ year }} {{ title }}. All Rights Reserved.
+    </footer>
+
+</body>
+</html>

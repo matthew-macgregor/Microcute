@@ -1,0 +1,94 @@
+<h3>Page Resolution</h3>
+<ul>
+<li>Look for a directory matching the route.</li>
+<li>If a directory matches, use the index file in that directory.
+<ul>
+<li>If there is no index file, show the 404 page.</li>
+</ul></li>
+<li>If no directory matches, look for a file that matches.</li>
+<li>If neither, show the 404 page.</li>
+</ul>
+<p>Note: a directory will override a file. In other words:</p>
+<pre><code>/meow/kitty/</code></pre>
+<p>Will take precedence over:</p>
+<pre><code>/meow/kitty.html</code></pre>
+<p>You can see an example of a sub directory with index file at <a href="http://localhost:8080/sub">sub</a>.</p>
+<h3>404 Page</h3>
+<p><strong>Microcute</strong> uses the <code>error.html</code> file in the content directory to generate the
+error message. This may also be an error.md, and like any other file the html
+will be auto-generated from the markdown.</p>
+<h3>Markdown &amp; HTML</h3>
+<p><strong>Microcute</strong> treats markdown and html as equals when it comes to content. Here
+are the rules:</p>
+<ul>
+<li>If an html file matches the route, use it.</li>
+<li>If a markdown file matches the route, and no html file exists:
+<ul>
+<li>Parse the markdown, create the matching html file, and then serve it.</li>
+</ul></li>
+<li>If a markdown file and html file both exist:
+<ul>
+<li>Check to see if the markdown file is fresher than the html file.</li>
+<li>If markdown is fresher, re-render and <strong>overwrite</strong> the html file.</li>
+</ul></li>
+</ul>
+<h3>Plugins</h3>
+<p>A plugin extends the features and capabilities of the framework. Microcute is
+built with plugins in mind. The core framework provides numerous hooks that
+allow plugin developers to inject behavior. The events are as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Available Plugin Events</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>before_prepare_config( )</td>
+</tr>
+<tr>
+<td>after_prepare_config( )</td>
+</tr>
+<tr>
+<td>on_load()</td>
+</tr>
+<tr>
+<td>before_routing( &amp;$route )</td>
+</tr>
+<tr>
+<td>after_routing( &amp;$contentpath )</td>
+</tr>
+<tr>
+<td>choose_format( &amp;$format, &amp;$baseroute )</td>
+</tr>
+<tr>
+<td>before_render_markdown( &amp;$contentpath )</td>
+</tr>
+<tr>
+<td>after_render_markdown( &amp;$contentpath, &amp;$html )</td>
+</tr>
+<tr>
+<td>before_render_html( &amp;$contentpath )</td>
+</tr>
+<tr>
+<td>after_render_html( &amp;$contentpath, &amp;$html )</td>
+</tr>
+<tr>
+<td>before_prepare_replacements( )</td>
+</tr>
+</tbody>
+</table>
+<p>The config may be accessed in any of these callbacks using <code>Config::get()</code>.
+Remember to update the config with <code>Config::set()</code> if you make any changes.</p>
+<p>You may also get and set individual keys using <code>Config::set_key()</code> and
+<code>Config::get_key()</code>. See <code>Config.php</code> for more details.</p>
+<p>For a plugin to work, it must implement a class that has the same name as the
+php file. For example, class <code>MicroCache</code> must be in <code>MicroCache.php</code>. Two
+examples are provided: <code>ExamplePlugin.php</code> and <code>MicroCache.php</code>.</p>
+<h3>Plugin Extensions</h3>
+<p>The <code>plugins/ext</code> directory provides a site for extension libraries that will be
+used or shared by plugins. These libraries don't hook in directly to the request
+lifecycle, but provide useful utilities that can be leveraged by plugins. For
+example, the sample site contains the <code>ApiKeyAuthenticator</code> class.</p>
+<p>You can require these files using the <code>PLUGIN_EXT_DIR</code> constant:</p>
+<pre><code>require_once PLUGIN_EXT_DIR . "ApiKeyAuthenticator.php";</code></pre>

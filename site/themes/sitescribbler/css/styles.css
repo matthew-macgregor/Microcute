@@ -1,0 +1,190 @@
+
+body {
+    font-family: 'Open Sans', serif;
+    font-weight: 300;
+    margin-left: 18%;
+    margin-right: 18%;
+    font-size: large;
+}
+
+h1 {
+    font-family: 'Open Sans', serif;
+    font-weight: 700;
+}
+
+h2,h3,h4,h5 {
+    font-family: 'Open Sans', serif;
+    font-weight: 400;
+    font-weight: bold;
+    color: darkgray;
+}
+
+footer {
+    /*position:fixed;
+    bottom:0;
+    left:15%;
+    right:15%;
+    height:5em;*/
+    background-color: white;
+    margin-top: 3em;
+    color: grey;
+    font-size: small;
+}
+
+p {
+    line-height: 175%;
+}
+
+a {
+    text-decoration: none;
+    color: #EB2A7A;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+table {
+    border-collapse: collapse;
+}
+td {
+    border: 1px solid gray;
+    padding: 0.3em;
+}
+
+.content {
+    margin-bottom: 1em;
+}
+
+.floatleft {
+    float: left;
+    padding-right: 1em;
+    padding-top: 0.5em;
+}
+
+.thumbnail {
+    width: 75px;
+    height: 75px;
+    float: left;
+    padding-right: 1em;
+    padding-top: 0.5em;
+}
+
+.no-center {
+    margin: 0;
+}
+
+.clearer { clear: both; }
+
+.title {
+}
+
+.menu {
+    margin-bottom: 2em;
+}
+
+.menu a {
+    float: left;
+    width: 8em;
+    text-decoration: none;
+    color: white;
+    background-color: #EB2A7A;
+    padding: 0.2em 0.6em;
+    border-right: 1px solid white;
+}
+
+.menu a:hover {
+    background-color: #EB8FB5;
+    color: #E80752;
+}
+
+.menu ul {
+    float: left;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.menu li {
+    display: inline;
+}
+
+blockquote {
+    background: #f9f9f9;
+    border-left: 10px solid #ccc;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+
+}
+
+blockquote p {
+    display: inline;
+}
+
+.caption {
+    text-align: center;
+}
+
+
+@media screen and (max-width: 700px) {
+    body {
+        font-weight: 400;
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+    h1, h2, h3, h4, h5 {
+        font-weight: 700;
+    }
+    footer {
+        text-align:center;
+        bottom:0;
+        left:0;
+        right:0;
+    }
+
+    .menu {
+        margin-bottom: 1em;
+        text-align:center;
+    }
+
+    .menu a {
+        float: none;
+        width: auto;
+        text-decoration: none;
+        color: #EB2A7A;
+        background-color: transparent;
+
+
+    }
+
+    .menu a:hover {
+        background-color: transparent;
+        color: #E80752;
+    }
+
+    .menu ul {
+        float: none;
+        width: 100%;
+        margin: 0;
+        list-style-type: none;
+    }
+
+    .menu li {
+        display: block;
+        padding: 0.5em;
+        margin: 3px;
+        border: 1px solid #EB2A7A;
+        border-radius:2em;
+    }
+
+    .floatleft {
+        float: none;
+    }
+
+
+
+}
