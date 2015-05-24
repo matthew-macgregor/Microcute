@@ -47,7 +47,7 @@ Will take precedence over:
 
 /meow/kitty.html
 
-You can see an example of a sub directory with index file at [sub]({{ site_url }}/sub).
+You can see an example of a sub directory with index file at `/site/content/sub/`.
 
 ### 404 Page
 
