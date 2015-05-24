@@ -1,5 +1,10 @@
 <?php
-
+/*
+* Project: Microcute
+* Author: Matthew MacGregor
+* Copyright: 2015 by Matthew MacGregor
+* License: MIT (see LICENSE.txt for full details).
+*/
 
 class ExamplePlugin {
 

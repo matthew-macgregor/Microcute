@@ -1,6 +1,10 @@
 <?php
-
 /**
+* Project: Microcute
+* Author: Matthew MacGregor
+* Copyright: 2015 by Matthew MacGregor
+* License: MIT (see LICENSE.txt for full details).
+*
 * The Config is a central pillar of the Microcute framework, and as such it
 * is globally accessible through this static object. Behind the scenes, the
 * config is simply an associative array. It stores configuration data, feeds
