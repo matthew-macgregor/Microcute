@@ -19,8 +19,10 @@ class Plugins {
 
         foreach( $plugins as $plugin ) {
             if( $plugin == "." || $plugin == ".." || is_dir(PLUGIN_DIR . $plugin) ) continue;
-            require_once PLUGIN_DIR . $plugin;
-            $plugin_classes[] = str_replace( ".php", "", $plugin );
+            if( self::endsWith( $plugin, '.php') ) {
+                require_once PLUGIN_DIR . $plugin;
+                $plugin_classes[] = str_replace( ".php", "", $plugin );
+            }
         }
 
         foreach( $plugin_classes as $class ) {
@@ -55,6 +57,11 @@ class Plugins {
     public static function stopPropagation() {
         // Plugin has taken over...
         exit(0);
+    }
+
+    private static function endsWith($haystack, $needle) {
+        // search forward starting from end minus needle length characters
+        return $needle === "" || (($temp = strlen($haystack) - strlen($needle)) >= 0 && strpos($haystack, $needle, $temp) !== FALSE);
     }
 
 }
