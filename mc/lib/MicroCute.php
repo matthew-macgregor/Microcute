@@ -146,7 +146,8 @@ class MicroCute {
         // basepath: meow/kitty
         // uri: meow/kitty/tokyo
         // result: tokyo
-        $path = ($basepath) ? preg_replace($basepath, '', $uri, 1) : $uri;
+        $count = 1;
+        $path = ($basepath) ? str_replace($basepath, '', $uri, $count) : $uri;
         return trim($path, "/");
     }
 
