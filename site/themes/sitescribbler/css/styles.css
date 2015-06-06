@@ -47,6 +47,10 @@ img {
 
 }
 
+pre {
+    margin-left: 1em;
+}
+
 table {
     border-collapse: collapse;
 }
