@@ -8,14 +8,9 @@
 class ApiKeyAuthenticator {
 
     private $private_key;
-    const TIMEOUT = 'api_key_auth_timeout';
 
     public function __construct( $private_key ) {
         $this->private_key = $private_key;
-    }
-
-    public function after_prepare_config( ) {
-
     }
 
     /**
@@ -25,29 +20,18 @@ class ApiKeyAuthenticator {
     * @param $ts string: UNIX timestamp for the request.
     * @param $hash string: Hash of "$userkey:$private_key".
     */
-    public function is_auth( $ts, $hash ) {
+    public function is_auth( $id, $hash ) {
         $is_auth = false;
 
-        if( ($ts || $hash ) == false ) {
+        if( ($id || $hash ) == false ) {
             return $is_auth;
         }
 
-        if( $this->is_within_timeout( $ts ) ) {
-            // ts is a timestamp. hash is an md5 of the ts:private_key.
-            if( md5("$ts:{$this->private_key}") == $hash ) {
-                $is_auth = true;
-            }
+        if( md5("$id:{$this->private_key}") == $hash ) {
+            $is_auth = true;
         }
 
         return $is_auth;
-    }
-
-    private function is_within_timeout( $ts ) {
-        $timeout = Config::get_key(self::TIMEOUT);
-        $timeout = ($timeout) ? $timeout : 60 * 60; // default to 1 hr
-        $now = time();
-        $ts = intval($ts);
-        return ( abs($now - $ts) < $timeout );
     }
 
     /**
