@@ -24,7 +24,7 @@ to do.
 Installing **Microcute** is very simple. Download the source code from github.
 Inside the main microcute directory run:
 
-php -S localhost:8080
+`php -S localhost:8080`
 
 This will start a development server. Begin adding pages in the `site/content/`
 directory.
